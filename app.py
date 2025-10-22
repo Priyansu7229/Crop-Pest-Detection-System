@@ -13,7 +13,7 @@ model.to("cpu")
 st.title("Crop Pest Detection using YOLOv8")
 st.write("Upload an image, video, or use webcam to detect pests in crops.")
 
-option = st.radio("Select Input Source", ("Image", "Video", "Webcam"))
+option = st.radio("Select Input Source", ("Image", "Video"))
 
 if option == "Image":
     uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
