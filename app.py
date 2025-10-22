@@ -6,7 +6,7 @@ from PIL import Image
 import numpy as np
 
 # Load model
-model = YOLO(r"C:/Users/Priyansu/Desktop/YOLO_CROP/weights/best.pt")
+model = YOLO("best.pt")
 model.fuse()
 model.to("cpu")
 
