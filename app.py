@@ -31,18 +31,3 @@ elif option == "Video":
         tfile.write(uploaded_video.read())
         results = model.predict(source=tfile.name, conf=0.5, save=True)
         st.video(tfile.name)
-
-elif option == "Webcam":
-    st.warning("Make sure your webcam is connected and allowed.")
-    if st.button("Start Webcam"):
-        cap = cv2.VideoCapture(0)
-        stframe = st.empty()
-        while cap.isOpened():
-            ret, frame = cap.read()
-            if not ret:
-                st.write("Camera disconnected.")
-                break
-            results = model(frame, conf=0.5)
-            annotated = results[0].plot()
-            stframe.image(annotated, channels="BGR", use_container_width=True)
-        cap.release()
